@@ -1,6 +1,9 @@
 #include<iostream>
 #include<algorithm>
 #include <ctime>
+#include<stdlib.h>
+#include<string>
+#include<string.h>
 using namespace std;
  
 int Initial_State [ 10 ] [ 10 ] ; 
@@ -103,10 +106,31 @@ void start()
     get_Initial_State( 2 , 1 ) ;  
 }
  
-int main()
+int main(int argc,char* args[])
 {
-	int N,M;
-	cin>>N;
+	
+	int M;
+	//cin>>N;
+	freopen("sudoku.txt", "w", stdout);
+	if (argc!= 3 || strcmp(args[1],"-c") != 0)
+	{
+		cout << "请输入正确参数!!" << endl;
+		return 0;
+	}
+	for (int i = 0; i < strlen(args[2]); i++)
+	{
+		if (args[2][i] <= '9' && args[2][i] >= '0')
+			continue;
+		else
+		{
+			cout << "请输入正确参数!!" << endl;
+			return 0;
+		}
+	}
+	string str(args[2]);
+	int N = std::atoi(str.c_str());
+	printf("参数正确，开始生成%d个数独\n", N);
+
 	for(M=0;M<N;M++)
 	{
 		
