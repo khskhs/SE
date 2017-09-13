@@ -129,7 +129,7 @@ int main(int argc,char* args[])
 	}
 	string str(args[2]);
 	int N = std::atoi(str.c_str());
-	printf("参数正确，开始生成%d个数独\n", N);
+	//printf("参数正确，开始生成%d个数独\n", N);
 
 	for(M=0;M<N;M++)
 	{
